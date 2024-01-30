@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import User, Driver, Order
+from .serializers import OrderSerializer
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import requests
@@ -52,5 +53,4 @@ def accept_order(request):
         order.status = 'accepted'
         order.save()
         return JsonResponse({'message': 'Order accepted successfully'})
-
 
